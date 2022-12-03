@@ -54,8 +54,8 @@ p sum
 
 sum = 0
 input.length.times do |i|
-  next if i%3 == 0 && i != 0 || i > input.length-3
-  p "#{input[i]}, #{input[i+1]}, #{input[i+2]}"
-  sum += find_value(find_common_char(input[i],input[i+1],input[i+2]))
+  next if i%3 == 0 && i != 0 || i > input.length/3
+  p "#{input[i*3]}, #{input[i*3+1]}, #{input[i*3+2]}"
+  sum += find_value(find_common_char(input[i*3],input[i*3+1],input[i*3+2]))
 end
 p sum
