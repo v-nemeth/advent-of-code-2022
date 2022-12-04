@@ -33,12 +33,12 @@ def find_common_char(s1,s2, s3 = false)
   end
 
 
-  s2.length.times do |i|
-    s1.length.times do |j|
-      common_char = s1[j] if s2[i] == s1[j]
-    end
-  end
-  return common_char
+  # s2.length.times do |i|
+  #   s1.length.times do |j|
+  #     common_char = s1[j] if s2[i] == s1[j]
+  #   end
+  # end
+  # return common_char
 end
 
 
@@ -53,11 +53,9 @@ end
 p sum
 
 sum = 0
-input.length.times do |i|
-  next if i%3 == 0 && i != 0 || i > input.length/3-1
-  p "#{input[i*3]}, #{input[i*3+1]}, #{input[i*3+2]}"
+(input.length/3).times do |i|
+  p "#{input[i*3]}, #{input[i*3+1]}, #{input[i*3+2]}, #{i}"
   sum += find_value(find_common_char(input[i*3],input[i*3+1],input[i*3+2]))
 end
-p "#{input[-3]}, #{input[-2]}, #{input[-1]}"
-sum += find_value(find_common_char(input[-3],input[-2],input[-1]))
+
 p sum
