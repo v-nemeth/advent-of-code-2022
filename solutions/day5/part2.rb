@@ -1,7 +1,7 @@
 Dir.chdir(File.dirname(__FILE__))
 input = File.read('input.txt').split("\n")
 
-c = [[],[],[],[],[],[],[],[],[]]
+c = [[], [], [], [], [], [], [], [], []]
 
 input[0..7].each do |string|
   c[0].append(string[0..2])
@@ -14,21 +14,20 @@ input[0..7].each do |string|
   c[7].append(string[28..30]) if string[28..30] != "   "
   c[8].append(string[32..34]) if !string[32..34].nil?
 end
-c.each {|a| a.reverse!}
+c.each { |a| a.reverse! }
 
 p c[8]
 
-#PART 1!
 input[9..-1].each do |string|
   move = string.scan(/\d+/)[0].to_i
   from = string.scan(/\d+/)[1].to_i
   to = string.scan(/\d+/)[2].to_i
 
-  m_crate = c[from-1].pop(move)
-  c[to-1].push(m_crate)
-  c[to-1].flatten!
+  m_crate = c[from - 1].pop(move)
+  c[to - 1].push(m_crate)
+  c[to - 1].flatten!
 end
 
 string = ""
-c.each {|a| string += a[-1].gsub(/[\[\]]/,'')}
+c.each { |a| string += a[-1].gsub(/[\[\]]/, '') }
 p string
